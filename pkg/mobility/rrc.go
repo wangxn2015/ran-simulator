@@ -7,8 +7,8 @@ package mobility
 import (
 	"context"
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	"github.com/onosproject/ran-simulator/pkg/model"
+	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"math/rand"
 )
 

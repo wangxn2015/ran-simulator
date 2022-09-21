@@ -5,7 +5,7 @@
 package ranfundesc
 
 import (
-	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
 )
 
 // RANFunctionDescription ran function description

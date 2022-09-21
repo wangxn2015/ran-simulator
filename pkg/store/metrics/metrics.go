@@ -9,9 +9,9 @@ import (
 	"sync"
 
 	"github.com/google/uuid"
-	liblog "github.com/onosproject/onos-lib-go/pkg/logging"
-	"github.com/onosproject/ran-simulator/pkg/store/event"
-	"github.com/onosproject/ran-simulator/pkg/store/watcher"
+	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/ran-simulator/pkg/store/event"
+	"github.com/wangxn2015/ran-simulator/pkg/store/watcher"
 )
 
 var log = liblog.GetLogger()

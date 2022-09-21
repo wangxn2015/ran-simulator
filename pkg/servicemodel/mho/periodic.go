@@ -6,8 +6,8 @@ package mho
 
 import (
 	"context"
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
-	subutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscription"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
+	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
 	"time"
 )
 

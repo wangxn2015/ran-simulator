@@ -7,17 +7,17 @@ package mho
 import (
 	"context"
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	e2sm_v2_ies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
-	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
-	"github.com/onosproject/ran-simulator/pkg/utils"
-	e2apIndicationUtils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/indication"
-	subutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscription"
-	indHdr "github.com/onosproject/ran-simulator/pkg/utils/e2sm/mho/indication/header"
-	indMsgFmt1 "github.com/onosproject/ran-simulator/pkg/utils/e2sm/mho/indication/message_format1"
-	indMsgFmt2 "github.com/onosproject/ran-simulator/pkg/utils/e2sm/mho/indication/message_format2"
+	e2sm_mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	e2sm_v2_ies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
+	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
+	"github.com/wangxn2015/ran-simulator/pkg/utils"
+	e2apIndicationUtils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/indication"
+	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
+	indHdr "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/mho/indication/header"
+	indMsgFmt1 "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/mho/indication/message_format1"
+	indMsgFmt2 "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/mho/indication/message_format2"
 )
 
 func (m *Mho) sendRicIndication(ctx context.Context, subscription *subutils.Subscription) error {

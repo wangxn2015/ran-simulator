@@ -10,12 +10,12 @@ import (
 	"testing"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/ran-simulator/pkg/store/event"
+	"github.com/wangxn2015/ran-simulator/pkg/store/event"
 
-	"github.com/onosproject/ran-simulator/pkg/store/nodes"
+	"github.com/wangxn2015/ran-simulator/pkg/store/nodes"
 
-	"github.com/onosproject/ran-simulator/pkg/model"
 	"github.com/stretchr/testify/assert"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"gopkg.in/yaml.v2"
 )
 

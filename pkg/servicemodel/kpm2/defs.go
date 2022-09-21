@@ -26,15 +26,26 @@ const (
 	RRCConnMax
 )
 
+//func (m MeasTypeName) String() string {
+//	return [...]string{"RRC.ConnEstabAtt.Sum",
+//		"RRC.ConnEstabSucc.Sum",
+//		"RRC.ConnReEstabAtt.Sum",
+//		"RRC.ConnReEstabAtt.reconfigFail",
+//		"RRC.ConnReEstabAtt.HOFail",
+//		"RRC.ConnReEstabAtt.Other",
+//		"RRC.Conn.Avg",
+//		"RRC.Conn.Max"}[m]
+//}
+
 func (m MeasTypeName) String() string {
-	return [...]string{"RRC.ConnEstabAtt.Sum",
-		"RRC.ConnEstabSucc.Sum",
-		"RRC.ConnReEstabAtt.Sum",
-		"RRC.ConnReEstabAtt.reconfigFail",
-		"RRC.ConnReEstabAtt.HOFail",
-		"RRC.ConnReEstabAtt.Other",
-		"RRC.Conn.Avg",
-		"RRC.Conn.Max"}[m]
+	return [...]string{"Baicells.KPM.Func0",
+		"Baicells.KPM.Func1",
+		"Baicells.KPM.Func2",
+		"Baicells.KPM.Func3",
+		"Baicells.KPM.Func4",
+		"Baicells.KPM.Func5",
+		"Baicells.KPM.Func6",
+		"Baicells.KPM.Func7"}[m]
 }
 
 // MeasType meas type

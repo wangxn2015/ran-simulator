@@ -6,16 +6,17 @@ package setup
 
 import (
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/onos-e2t/api/e2ap/v2"
-	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/pdubuilder"
-	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
-	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
-	"github.com/onosproject/ran-simulator/pkg/utils"
+	pdubuilder "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/pdubuilder"
+	types "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
+	asn1 "github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
 
-	e2ap_commondatatypes "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
-	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	e2aptypes "github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
-	"github.com/onosproject/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/ran-simulator/pkg/utils"
+
+	"github.com/wangxn2015/onos-e2t/api/e2ap/v2"
+	e2ap_commondatatypes "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
+	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2aptypes "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 )
 
 var log = logging.GetLogger("servicemodel", "utils", "setup")
@@ -79,6 +80,17 @@ func WithTransactionID(transID int32) func(setup *Setup) {
 // Build builds e2ap setup request
 func (request *Setup) Build() (setupRequest *e2appducontents.E2SetupRequest, err error) {
 	//plmnID := types.NewUint24(request.plmnID)
+
+	//ge2nID, err := pdubuilder.CreateGlobalE2nodeIDGnb(types.PlmnID(request.plmnID), &asn1.BitString{
+	//	Value: utils.Uint64ToBitString(request.e2NodeID, 28),
+	//	Len:   28,
+	//})
+	//if err != nil {
+	//	return nil, err
+	//}
+
+	//----------------------------
+
 	ge2nID, err := pdubuilder.CreateGlobalE2nodeIDGnb(types.PlmnID(request.plmnID), &asn1.BitString{
 		Value: utils.Uint64ToBitString(request.e2NodeID, 28),
 		Len:   28,
@@ -87,6 +99,7 @@ func (request *Setup) Build() (setupRequest *e2appducontents.E2SetupRequest, err
 		return nil, err
 	}
 
+	//------------------------
 	cal := &e2appducontents.E2SetupRequestIes{
 		Id:          int32(v2.ProtocolIeIDE2nodeComponentConfigAddition),
 		Criticality: int32(e2ap_commondatatypes.Criticality_CRITICALITY_REJECT),
@@ -100,7 +113,9 @@ func (request *Setup) Build() (setupRequest *e2appducontents.E2SetupRequest, err
 	setupRequest = &e2appducontents.E2SetupRequest{
 		ProtocolIes: make([]*e2appducontents.E2SetupRequestIes, 0),
 	}
-
+	//wxn  -------------------------------------
+	//setupRequest.SetGlobalE2nodeID(ge2nID).SetRanFunctionsAdded(request.ranFunctions).
+	//	SetTransactionID(request.transactionID)
 	setupRequest.SetGlobalE2nodeID(ge2nID).SetRanFunctionsAdded(request.ranFunctions).
 		SetTransactionID(request.transactionID)
 	setupRequest.ProtocolIes = append(setupRequest.ProtocolIes, cal)

@@ -5,12 +5,12 @@
 package nrt
 
 import (
-	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
+	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
 
-	"github.com/onosproject/ran-simulator/pkg/utils"
+	"github.com/wangxn2015/ran-simulator/pkg/utils"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
 )
 
 // Neighbour neighbour fields for nrt message

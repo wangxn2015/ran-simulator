@@ -8,23 +8,23 @@ import (
 	"context"
 	"fmt"
 
-	e2smrcpresm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
-	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
+	e2smrcpresm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
+	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
 
-	meastype "github.com/onosproject/rrm-son-lib/pkg/model/measurement/type"
+	meastype "github.com/wangxn2015/rrm-son-lib/pkg/model/measurement/type"
 
-	"github.com/onosproject/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 
-	indicationutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/indication"
-	subutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscription"
-	rcindicationhdr "github.com/onosproject/ran-simulator/pkg/utils/e2sm/rc/indication/header"
-	rcindicationmsg "github.com/onosproject/ran-simulator/pkg/utils/e2sm/rc/indication/message"
-	"github.com/onosproject/ran-simulator/pkg/utils/e2sm/rc/nrt"
+	indicationutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/indication"
+	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
+	rcindicationhdr "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/rc/indication/header"
+	rcindicationmsg "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/rc/indication/message"
+	"github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/rc/nrt"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
 
-	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
-	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 	"google.golang.org/protobuf/proto"
 )
 

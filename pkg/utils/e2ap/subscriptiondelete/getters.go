@@ -5,10 +5,10 @@
 package subscriptiondelete
 
 import (
-	"github.com/onosproject/onos-lib-go/pkg/errors"
+	"github.com/wangxn2015/onos-lib-go/pkg/errors"
 
-	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
-	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
+	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 )
 
 // GetRequesterID gets requester ID

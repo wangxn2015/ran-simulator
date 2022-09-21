@@ -6,16 +6,16 @@ package header
 
 import (
 	"fmt"
-	e2smmhosm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
-	e2smv2ies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
-	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
+	e2smmhosm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
+	e2smv2ies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
+	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
 
 	"google.golang.org/protobuf/proto"
 
-	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	"github.com/onosproject/onos-lib-go/pkg/logging"
+	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 )
 
 var log = logging.GetLogger("sm", "mho")

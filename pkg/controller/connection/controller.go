@@ -8,27 +8,27 @@ import (
 	"context"
 	"sync/atomic"
 
-	"github.com/onosproject/onos-lib-go/pkg/errors"
+	"github.com/wangxn2015/onos-lib-go/pkg/errors"
 
 	"fmt"
 	"time"
 
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/registry"
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 
-	"github.com/onosproject/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/ran-simulator/pkg/utils/e2ap/configupdate"
+	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/configupdate"
 
-	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
-	e2connection "github.com/onosproject/ran-simulator/pkg/e2agent/connection"
+	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	e2connection "github.com/wangxn2015/ran-simulator/pkg/e2agent/connection"
 
-	"github.com/onosproject/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 
-	"github.com/onosproject/ran-simulator/pkg/store/connections"
+	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
 
-	"github.com/onosproject/onos-lib-go/pkg/controller"
+	"github.com/wangxn2015/onos-lib-go/pkg/controller"
 )
 
 var log = logging.GetLogger()
@@ -124,11 +124,12 @@ func (r *Reconciler) configureDataConn(ctx context.Context, connection *connecti
 	if configUpdateAck != nil {
 		log.Infof("Config update ack is received:%+v", configUpdateAck)
 		connection.Status.State = connections.Configured
-		err = r.connections.Update(ctx, connection)
-		if err != nil {
-			log.Warnf("Failed to reconcile configuring connection %+v: %s", connection, err)
-			return controller.Result{}, err
-		}
+		//---wxn commented 0809
+		//err = r.connections.Update(ctx, connection)
+		//if err != nil {
+		//	log.Warnf("Failed to reconcile configuring connection %+v: %s", connection, err)
+		//	return controller.Result{}, err
+		//}
 	}
 
 	return controller.Result{}, nil
@@ -139,7 +140,7 @@ func (r *Reconciler) reconcileOpenConnection(connection *connections.Connection)
 
 	// If the connection state is in configured  state returns with nil error
 	if connection.Status.State == connections.Configured {
-		log.Infof("Connection %+v is configured", connection)
+		log.Infof("wxn--> in reconcile and return. Connection %+v is configured", connection)
 		return controller.Result{}, nil
 	}
 
@@ -147,7 +148,9 @@ func (r *Reconciler) reconcileOpenConnection(connection *connections.Connection)
 	defer cancel()
 	// If the connection state is in configuring state then configure the connection
 	if connection.Status.State == connections.Configuring {
-		log.Infof("Reconcile Configuring connection: %+v", connection)
+		//log.Infof("Reconcile Configuring connection: %+v", connection)
+		log.Infof("wxn----> Reconcile opening connection after one sec: %s", connection.ID)
+		time.Sleep(1 * time.Second)
 		return r.configureDataConn(ctx, connection)
 	}
 
@@ -186,7 +189,7 @@ func (r *Reconciler) reconcileOpenConnection(connection *connections.Connection)
 	//  additional TNLA of an already setup E2 interface instance after the TNL association has become operational, and the Near-RT RIC shall
 	//  associate the TNLA to the E2 interface instance using the included Global E2 Node ID.
 	if connection.Status.State == connections.Connected {
-		log.Infof("Reconcile Connected connection %+v", connection)
+		log.Infof("wxn-->Reconcile Connected connection %+v", connection)
 		connection.Status.State = connections.Configuring
 		err := r.connections.Update(ctx, connection)
 		if err != nil {

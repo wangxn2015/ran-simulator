@@ -5,12 +5,12 @@
 package connection
 
 import (
-	"github.com/onosproject/ran-simulator/pkg/e2agent/addressing"
+	"github.com/cenkalti/backoff"
+	"github.com/wangxn2015/ran-simulator/pkg/e2agent/addressing"
 
 	"time"
 
-	"github.com/cenkalti/backoff/v4"
-	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
 )
 
 func (e *e2Connection) getRICAddress(tnlInfo *e2apies.Tnlinformation) addressing.RICAddress {

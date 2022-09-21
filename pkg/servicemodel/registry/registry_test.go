@@ -8,10 +8,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/onosproject/ran-simulator/pkg/servicemodel"
 	"github.com/stretchr/testify/assert"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel"
 
-	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 )
 
 var _ servicemodel.Client = &mockServiceModel{}

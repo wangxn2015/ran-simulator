@@ -25,11 +25,11 @@ debug: build # @HELP build the Go binaries with debug symbols
 
 test: # @HELP run the unit tests and source code validation producing a golang style report
 test: build deps linters license
-	go test -race github.com/onosproject/ran-simulator/...
+	go test -race github.com/wangxn2015/ran-simulator/...
 
 jenkins-test:  # @HELP run the unit tests and source code validation producing a junit style report for Jenkins
 jenkins-test: build deps license linters
-	TEST_PACKAGES=github.com/onosproject/ran-simulator/pkg/... ./build/build-tools/build/jenkins/make-unit
+	TEST_PACKAGES=github.com/wangxn2015/ran-simulator/pkg/... ./build/build-tools/build/jenkins/make-unit
 
 integration-tests: # @HELP run helmit integration tests
 	@kubectl delete ns test; kubectl create ns test
@@ -64,5 +64,5 @@ jenkins-publish: # @HELP Jenkins calls this to publish artifacts
 
 clean:: # @HELP remove all the build artifacts
 	rm -rf ${OUTPUT_DIR} ./cmd/trafficsim/trafficsim ./cmd/ransim/ransim
-	go clean -testcache github.com/onosproject/ran-simulator/...
+	go clean -testcache github.com/wangxn2015/ran-simulator/...
 

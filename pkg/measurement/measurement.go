@@ -6,11 +6,11 @@ package measurement
 
 import (
 	"context"
-	"github.com/onosproject/onos-lib-go/pkg/logging"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/cells"
-	"github.com/onosproject/ran-simulator/pkg/store/ues"
-	"github.com/onosproject/rrm-son-lib/pkg/model/device"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
+	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/device"
 )
 
 var logMeasCtrl = logging.GetLogger("measurement", "controller")

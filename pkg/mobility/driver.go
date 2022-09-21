@@ -12,18 +12,18 @@ import (
 	"sync"
 	"time"
 
-	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	e2sm_mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/onos-lib-go/pkg/logging"
-	"github.com/onosproject/ran-simulator/pkg/handover"
-	"github.com/onosproject/ran-simulator/pkg/measurement"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/cells"
-	"github.com/onosproject/ran-simulator/pkg/store/routes"
-	"github.com/onosproject/ran-simulator/pkg/store/ues"
-	"github.com/onosproject/ran-simulator/pkg/utils"
-	"github.com/onosproject/rrm-son-lib/pkg/model/id"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/ran-simulator/pkg/handover"
+	"github.com/wangxn2015/ran-simulator/pkg/measurement"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
+	"github.com/wangxn2015/ran-simulator/pkg/store/routes"
+	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
+	"github.com/wangxn2015/ran-simulator/pkg/utils"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/id"
 )
 
 var log = logging.GetLogger()

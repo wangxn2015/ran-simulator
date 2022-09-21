@@ -9,9 +9,9 @@ import (
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
 	"testing"
 
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/event"
 	"github.com/stretchr/testify/assert"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/event"
 )
 
 func TestRouteRegistry(t *testing.T) {

@@ -12,48 +12,48 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/pdubuilder"
-	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
+	"github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/pdubuilder"
+	"github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
 
-	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
-	e2apcommondatatypes "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
+	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
+	e2apcommondatatypes "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
 
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/kpm2"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/kpm2"
 
-	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 
-	connectionsetupfaileditem "github.com/onosproject/ran-simulator/pkg/utils/e2ap/connectionupdate/connectionSetupFailedItemie"
+	connectionsetupfaileditem "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/connectionupdate/connectionSetupFailedItemie"
 
-	"github.com/onosproject/ran-simulator/pkg/e2agent/addressing"
+	"github.com/wangxn2015/ran-simulator/pkg/e2agent/addressing"
 
-	"github.com/onosproject/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 
-	"github.com/onosproject/ran-simulator/pkg/store/connections"
+	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
 
-	"github.com/onosproject/ran-simulator/pkg/utils/e2ap/connectionupdate/connectionUpdateitemie"
+	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/connectionupdate/connectionUpdateitemie"
 
-	"github.com/onosproject/ran-simulator/pkg/utils/e2ap/connectionupdate"
+	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/connectionupdate"
 
 	"github.com/cenkalti/backoff"
 
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/mho"
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/rc"
-	rcv1 "github.com/onosproject/ran-simulator/pkg/servicemodel/rc/v1"
-	controlutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/control"
-	subutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscription"
-	subdeleteutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscriptiondelete"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/mho"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/rc"
+	rcv1 "github.com/wangxn2015/ran-simulator/pkg/servicemodel/rc/v1"
+	controlutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/control"
+	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
+	subdeleteutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscriptiondelete"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/onos-lib-go/pkg/errors"
-	"github.com/onosproject/ran-simulator/pkg/utils/e2ap/setup"
+	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/setup"
 
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 
-	"github.com/onosproject/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 
-	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
-	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/registry"
+	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"
 )
 
 var log = logging.GetLogger()
@@ -164,7 +164,7 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 			// TODO handle tnlUsage
 
 			ricAddress = e.getRICAddress(tnlInfo)
-			log.Debugf("RIC and IP and Port information: %v:%v", ricAddress.IPAddress, ricAddress.Port)
+			log.Infof("wxn-->RIC and IP and Port information: %v:%v", ricAddress.IPAddress, ricAddress.Port)
 
 			if ricAddress.IPAddress == nil {
 				cause := &e2apies.Cause{
@@ -184,9 +184,10 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 			// Adds a new connection in Connecting state
 			// to the connection store to trigger reconciliation of a connection
 			connectionID := connections.NewConnectionID(ricAddress.IPAddress.String(), ricAddress.Port)
+			log.Infof("wxn-->checking ConnectionID %s : ", connectionID)
 			_, err := e.connectionStore.Get(ctx, connectionID)
 			if err == nil {
-				log.Debugf("Connection %s does exist", connectionID)
+				log.Infof("wxn-->Connection %s does exist", connectionID)
 				continue
 			}
 
@@ -197,7 +198,7 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 					State: connections.Connecting,
 				},
 			}
-
+			log.Infof("wxn-->adding new Connection to Open:Connecting: %s ", connectionID)
 			err = e.connectionStore.Add(ctx, connectionID, connection)
 			if err != nil {
 				// If connection is not established then creates a connection setup failed item IE
@@ -221,7 +222,7 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 
 	// remove connections
 	if ies46 != nil {
-		log.Debugf("Removing connections: %+v", ies46)
+		log.Infof("wxn--> Removing connections: %+v", ies46)
 		connectionUpdateRemoveItems := ies46.GetValue()
 		for _, connectionUpdateRemoveItem := range connectionUpdateRemoveItems {
 			tnlInfo := connectionUpdateRemoveItem.GetValue().GetE2ConnectionUpdateRemoveItem().GetTnlInformation()
@@ -285,7 +286,7 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 	}
 	// TODO modifying connections
 	if ies45 != nil {
-		log.Debug("Modifying connections")
+		log.Info("wxn-->Modifying connections")
 	}
 
 	// After successful update of E2 interface connection(s), the E2 Node shall reply with the E2 CONNECTION UPDATE ACKNOWLEDGE message to inform
@@ -295,7 +296,7 @@ func (e *e2Connection) E2ConnectionUpdate(ctx context.Context, request *e2appduc
 		connectionupdate.WithConnectionSetupFailedItemIes(connectionSetupFailedItemIes),
 		connectionupdate.WithTransactionID(trID)).
 		BuildConnectionUpdateAcknowledge()
-	log.Infof("Sending Connection Update Ack: %+v", ack)
+	log.Infof("wxn-->Sending Connection Update Ack: %+v", ack)
 	return ack, nil, nil
 }
 
@@ -753,12 +754,14 @@ func (e *e2Connection) setup() error {
 	log.Infof("E2 Setup Ack is received:%+v", e2SetupAck)
 	// Add connection to the connection store
 	connectionID := connections.NewConnectionID(e.ricAddress.IPAddress.String(), e.ricAddress.Port)
-
+	log.Infof("wxn-->connection Phase:Open State:Configured. connectionID: %+v, %+v", e.ricAddress.IPAddress.String(), e.ricAddress.Port)
 	connection := &connections.Connection{
 		ID: connectionID,
 		Status: connections.ConnectionStatus{
 			Phase: connections.Open,
-			State: connections.Configured,
+			// wxn change it to Connected?
+			State: connections.Configuring,
+			//State: connections.Configured,
 		},
 		Client: e.client,
 	}

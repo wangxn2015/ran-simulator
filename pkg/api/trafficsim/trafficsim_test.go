@@ -10,13 +10,13 @@ import (
 	"testing"
 
 	simapi "github.com/onosproject/onos-api/go/onos/ransim/trafficsim"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/cells"
-	"github.com/onosproject/ran-simulator/pkg/store/nodes"
-	"github.com/onosproject/ran-simulator/pkg/store/ues"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
+	"github.com/wangxn2015/ran-simulator/pkg/store/nodes"
+	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
 
-	"github.com/onosproject/onos-lib-go/pkg/northbound"
 	"github.com/stretchr/testify/assert"
+	"github.com/wangxn2015/onos-lib-go/pkg/northbound"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/test/bufconn"
 )

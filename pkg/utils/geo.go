@@ -6,7 +6,7 @@
 package utils
 
 import (
-	"github.com/onosproject/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"math"
 )
 

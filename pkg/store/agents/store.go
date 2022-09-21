@@ -5,14 +5,14 @@
 package agents
 
 import (
-	"github.com/onosproject/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 
 	"sync"
 
-	"github.com/onosproject/onos-lib-go/pkg/errors"
+	"github.com/wangxn2015/onos-lib-go/pkg/errors"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/ran-simulator/pkg/e2agent"
+	"github.com/wangxn2015/ran-simulator/pkg/e2agent"
 )
 
 var log = logging.GetLogger()

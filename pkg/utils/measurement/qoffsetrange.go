@@ -5,7 +5,7 @@
 package utils
 
 import (
-	meastype "github.com/onosproject/rrm-son-lib/pkg/model/measurement/type"
+	meastype "github.com/wangxn2015/rrm-son-lib/pkg/model/measurement/type"
 	"sort"
 )
 

@@ -8,8 +8,8 @@ import (
 	"bytes"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/spf13/viper"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 )
 
 const configDir = ".onos"
@@ -29,6 +29,7 @@ func ViperConfigure(configname string) {
 	viper.AddConfigPath("$HOME/" + configDir + "/config")
 	viper.AddConfigPath("/etc/onos/config")
 	viper.AddConfigPath(".")
+	viper.AddConfigPath("./cmd/ransim/" + configDir + "/config")
 }
 
 // LoadConfig Loads model with data in configuration yaml file
@@ -36,7 +37,7 @@ func LoadConfig(model *Model, configname string) error {
 	var err error
 
 	ViperConfigure(configname)
-
+	//
 	if err := viper.ReadInConfig(); err != nil {
 		log.Errorf("Unable to read %s config: %v", configname, err)
 		return err

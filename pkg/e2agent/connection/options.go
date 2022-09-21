@@ -5,12 +5,12 @@
 package connection
 
 import (
-	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
-	"github.com/onosproject/ran-simulator/pkg/e2agent/addressing"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/servicemodel/registry"
-	"github.com/onosproject/ran-simulator/pkg/store/connections"
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
+	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	"github.com/wangxn2015/ran-simulator/pkg/e2agent/addressing"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"
+	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 )
 
 // InstanceOptions e2 channel instance options

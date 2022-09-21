@@ -9,13 +9,13 @@ import (
 	"context"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/event"
-	"github.com/onosproject/ran-simulator/pkg/store/ues"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/event"
+	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
 
 	modelapi "github.com/onosproject/onos-api/go/onos/ransim/model"
-	liblog "github.com/onosproject/onos-lib-go/pkg/logging"
-	service "github.com/onosproject/onos-lib-go/pkg/northbound"
+	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
+	service "github.com/wangxn2015/onos-lib-go/pkg/northbound"
 	"google.golang.org/grpc"
 )
 

@@ -8,15 +8,15 @@ import (
 	"context"
 	"math"
 
-	"github.com/onosproject/onos-lib-go/pkg/logging"
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/store/cells"
-	"github.com/onosproject/ran-simulator/pkg/store/ues"
-	utils "github.com/onosproject/ran-simulator/pkg/utils/measurement"
-	"github.com/onosproject/rrm-son-lib/pkg/model/device"
-	"github.com/onosproject/rrm-son-lib/pkg/model/id"
-	"github.com/onosproject/rrm-son-lib/pkg/model/measurement"
-	meastype "github.com/onosproject/rrm-son-lib/pkg/model/measurement/type"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
+	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
+	utils "github.com/wangxn2015/ran-simulator/pkg/utils/measurement"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/device"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/id"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/measurement"
+	meastype "github.com/wangxn2015/rrm-son-lib/pkg/model/measurement/type"
 )
 
 var logConverter = logging.GetLogger()

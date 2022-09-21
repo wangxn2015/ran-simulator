@@ -5,9 +5,9 @@
 package e2t
 
 import (
-	"github.com/onosproject/helmit/pkg/input"
-	"github.com/onosproject/helmit/pkg/test"
-	"github.com/onosproject/ran-simulator/tests/utils"
+	"github.com/wangxn2015/helmit/pkg/input"
+	"github.com/wangxn2015/helmit/pkg/test"
+	"github.com/wangxn2015/ran-simulator/tests/utils"
 )
 
 // TestSuite is the primary ran-simulator test suite

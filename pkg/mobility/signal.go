@@ -5,8 +5,8 @@
 package mobility
 
 import (
-	"github.com/onosproject/ran-simulator/pkg/model"
-	"github.com/onosproject/ran-simulator/pkg/utils"
+	"github.com/wangxn2015/ran-simulator/pkg/model"
+	"github.com/wangxn2015/ran-simulator/pkg/utils"
 	"math"
 )
 

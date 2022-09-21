@@ -5,9 +5,9 @@
 package format1
 
 import (
-	"github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc/pdubuilder"
-	e2smrcsm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc/servicemodel"
-	e2smrcies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc/v1/e2sm-rc-ies"
+	"github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc/pdubuilder"
+	e2smrcsm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc/servicemodel"
+	e2smrcies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc/v1/e2sm-rc-ies"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -6,8 +6,8 @@ package model
 
 import (
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	"github.com/onosproject/onos-lib-go/pkg/errors"
+	e2sm_mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	"github.com/wangxn2015/onos-lib-go/pkg/errors"
 )
 
 // Model simulation model

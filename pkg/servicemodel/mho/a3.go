@@ -8,9 +8,9 @@ import (
 	"context"
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/onosproject/ran-simulator/pkg/store/subscriptions"
-	subutils "github.com/onosproject/ran-simulator/pkg/utils/e2ap/subscription"
-	"github.com/onosproject/rrm-son-lib/pkg/model/id"
+	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
+	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/id"
 )
 
 func (m *Mho) processEventA3MeasReport(ctx context.Context, subscription *subutils.Subscription) {

@@ -5,9 +5,9 @@
 package measurement
 
 import (
-	"github.com/onosproject/onos-lib-go/pkg/logging"
-	"github.com/onosproject/rrm-son-lib/pkg/measurement"
-	"github.com/onosproject/rrm-son-lib/pkg/model/device"
+	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/wangxn2015/rrm-son-lib/pkg/measurement"
+	"github.com/wangxn2015/rrm-son-lib/pkg/model/device"
 )
 
 var logEventA3 = logging.GetLogger("measurement", "eventa3")

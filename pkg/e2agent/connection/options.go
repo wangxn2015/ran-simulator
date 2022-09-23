@@ -15,13 +15,14 @@ import (
 
 // InstanceOptions e2 channel instance options
 type InstanceOptions struct {
-	node            model.Node
-	model           *model.Model
-	ricAddress      addressing.RICAddress
-	e2Client        e2.ClientConn
-	registry        *registry.ServiceModelRegistry
-	subStore        *subscriptions.Subscriptions
-	connectionStore connections.Store
+	node                 model.Node
+	model                *model.Model
+	ricAddress           addressing.RICAddress
+	e2Client             e2.ClientConn
+	registry             *registry.ServiceModelRegistry
+	subStore             *subscriptions.Subscriptions
+	connectionStore      connections.Store
+	sctpClientBindOption addressing.SctpClientBindAddress
 }
 
 // InstanceOption instance option
@@ -73,5 +74,11 @@ func WithSubStore(subStore *subscriptions.Subscriptions) func(options *InstanceO
 func WithConnectionStore(connectionStore connections.Store) func(options *InstanceOptions) {
 	return func(options *InstanceOptions) {
 		options.connectionStore = connectionStore
+	}
+}
+
+func WithSctpClientBindOption(opt addressing.SctpClientBindAddress) func(options *InstanceOptions) {
+	return func(options *InstanceOptions) {
+		options.sctpClientBindOption = opt
 	}
 }

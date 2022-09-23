@@ -19,6 +19,7 @@ type Model struct {
 	Nodes                   map[string]Node         `mapstructure:"nodes" yaml:"nodes"`
 	Cells                   map[string]Cell         `mapstructure:"cells" yaml:"cells"`
 	Controllers             map[string]Controller   `mapstructure:"controllers" yaml:"controllers"`
+	LocalConfigs            map[string]LocalConfig  `yaml:"localConfigs"`
 	ServiceModels           map[string]ServiceModel `mapstructure:"servicemodels" yaml:"servicemodels"`
 	RrcStateChangesDisabled bool                    `mapstructure:"RrcStateChangesDisabled" yaml:"RrcStateChangesDisabled"`
 	InitialRrcState         string                  `mapstructure:"initialRrcState" yaml:"initialRrcState"`
@@ -76,6 +77,12 @@ type Controller struct {
 	ID      string `mapstructure:"id"`
 	Address string `mapstructure:"address"`
 	Port    int    `mapstructure:"port"`
+}
+
+type LocalConfig struct {
+	SctpClientBindEnable bool   `mapstructure:"sctpClientBind"`
+	ID                   string `mapstructure:"id"`
+	Address              string `mapstructure:"address"`
 }
 
 // MeasurementParams has measurement parameters

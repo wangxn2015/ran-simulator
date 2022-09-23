@@ -21,6 +21,11 @@ type Port struct {
 	Len   uint32
 }
 
+type SctpClientBindAddress struct {
+	BindEnable bool
+	IPAddress  net.IP
+}
+
 // ToUint converts port in byte array to uint based on given size
 func (p *Port) ToUint() uint64 {
 	var port uint64

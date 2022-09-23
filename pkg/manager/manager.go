@@ -79,7 +79,7 @@ func (m *Manager) Run() {
 
 // Start starts the manager
 func (m *Manager) Start() error {
-	// Load the model data
+	// Load the model data into m.model
 	err := model.Load(m.model, m.config.ModelName)
 	if err != nil {
 		log.Error(err)

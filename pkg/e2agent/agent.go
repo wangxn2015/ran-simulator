@@ -71,6 +71,7 @@ func NewE2Agent(node model.Node, model *model.Model,
 
 	// Each new e2 agent has its own subscription store
 	subStore := subscriptions.NewStore()
+	//该node支持的 SMs
 	sms := node.ServiceModels
 	for _, smID := range sms {
 		serviceModel, err := model.GetServiceModel(smID)
@@ -93,12 +94,14 @@ func NewE2Agent(node model.Node, model *model.Model,
 			}
 		case registry.Kpm2:
 			log.Infof("Registering KPM2 service model for node with e2 Node ID: %v", node.GnbID)
+			//新建kpm2 sm
 			kpm2Sm, err := kpm2.NewServiceModel(node, model,
 				subStore, nodeStore, ueStore)
 			if err != nil {
 				log.Errorf("Failure creating KPM2 service model for e2 node ID: %v, %s", node.GnbID, err.Error())
 				return nil, err
 			}
+			//注册
 			err = reg.RegisterServiceModel(kpm2Sm)
 			if err != nil {
 				log.Errorf("Failure registering KPM2 service model for e2 Node ID: %v, %s", node.GnbID, err.Error())
@@ -160,6 +163,11 @@ func (a *e2Agent) Start() error {
 		IPAddress: net.ParseIP(controllerAddresses[0]),
 		Port:      uint64(controller.Port),
 	}
+	sctpClientBindOpt := addressing.SctpClientBindAddress{
+		BindEnable: a.model.LocalConfigs["sctpclient"].SctpClientBindEnable,
+		IPAddress:  net.ParseIP(a.model.LocalConfigs["sctpclient"].Address),
+	}
+
 	connectionStore := connections.NewStore()
 	a.connectionStore = connectionStore
 
@@ -168,13 +176,16 @@ func (a *e2Agent) Start() error {
 	if err != nil {
 		return err
 	}
-
+	// param:   opts ...InstanceOption
+	// type InstanceOption func(*InstanceOptions)
 	e2Connection := connection.NewE2Connection(connection.WithNode(a.node),
 		connection.WithModel(a.model),
 		connection.WithSMRegistry(a.registry),
 		connection.WithSubStore(a.subStore),
 		connection.WithRICAddress(ricAddress),
-		connection.WithConnectionStore(connectionStore))
+		connection.WithConnectionStore(connectionStore),
+		connection.WithSctpClientBindOption(sctpClientBindOpt),
+	)
 
 	err = e2Connection.Setup()
 	if err != nil {

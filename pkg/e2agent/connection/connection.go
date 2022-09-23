@@ -72,14 +72,15 @@ type E2Connection interface {
 }
 
 type e2Connection struct {
-	node            model.Node
-	model           *model.Model
-	client          e2.ClientConn
-	registry        *registry.ServiceModelRegistry
-	subStore        *subscriptions.Subscriptions
-	connectionStore connections.Store
-	ricAddress      addressing.RICAddress
-	transactionID   uint64
+	node                  model.Node
+	model                 *model.Model
+	client                e2.ClientConn
+	registry              *registry.ServiceModelRegistry
+	subStore              *subscriptions.Subscriptions
+	connectionStore       connections.Store
+	ricAddress            addressing.RICAddress
+	transactionID         uint64
+	sctpClientBindAddress addressing.SctpClientBindAddress
 }
 
 // SetClient sets E2 client
@@ -100,13 +101,14 @@ func NewE2Connection(opts ...InstanceOption) E2Connection {
 		option(instanceOptions)
 	}
 	return &e2Connection{
-		model:           instanceOptions.model,
-		node:            instanceOptions.node,
-		registry:        instanceOptions.registry,
-		subStore:        instanceOptions.subStore,
-		ricAddress:      instanceOptions.ricAddress,
-		connectionStore: instanceOptions.connectionStore,
-		client:          instanceOptions.e2Client,
+		model:                 instanceOptions.model,
+		node:                  instanceOptions.node,
+		registry:              instanceOptions.registry,
+		subStore:              instanceOptions.subStore,
+		ricAddress:            instanceOptions.ricAddress,
+		connectionStore:       instanceOptions.connectionStore,
+		client:                instanceOptions.e2Client,
+		sctpClientBindAddress: instanceOptions.sctpClientBindOption, //add by wxn 2022.9.22
 	}
 
 }
@@ -675,18 +677,39 @@ func (e *e2Connection) connect() error {
 	log.Info("Connecting to E2T with IP address:", addr)
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	client, err := e2.Connect(ctx, addr,
-		func(channel e2.ClientConn) e2.ClientInterface {
-			return e
-		},
-	)
-
-	if err != nil {
-		return err
+	//--------------wxn-----------
+	//--------new func to bind sctpClient address
+	if e.sctpClientBindAddress.BindEnable == true {
+		sctpClientIpAddress := e.sctpClientBindAddress.IPAddress.String()
+		client, err := e2.ConnectWithSctpBind(ctx, addr, sctpClientIpAddress,
+			func(channel e2.ClientConn) e2.ClientInterface {
+				return e
+			},
+		)
+		if err != nil {
+			return err
+		}
+		e.client = client
+		return nil
+	} else {
+		client, err := e2.Connect(ctx, addr,
+			func(channel e2.ClientConn) e2.ClientInterface {
+				return e
+			},
+		)
+		if err != nil {
+			return err
+		}
+		e.client = client
+		return nil
 	}
 
-	e.client = client
-	return nil
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//e.client = client
+	//return nil
 }
 
 func (e *e2Connection) setup() error {

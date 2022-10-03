@@ -68,6 +68,7 @@ func main() {
 	modelName := flag.String("modelName", "model/two-cell-two-node-model.yaml", "RANSim model file/resource name")
 	metricName := flag.String("metricName", "metrics", "RANSim metric file/resource name")
 	hoLogic := flag.String("hoLogic", "local", "the location of handover logic {local, mho}")
+	lmfGrpcPort := flag.Int("lmfGrpcPort", 50051, "GRPC port for e2T server")
 	//------------------------------------------
 	flag.Parse()
 
@@ -77,13 +78,14 @@ func main() {
 	}
 
 	cfg := &manager.Config{
-		CAPath:     *caPath,
-		KeyPath:    *keyPath,
-		CertPath:   *certPath,
-		GRPCPort:   *grpcPort,
-		ModelName:  *modelName,
-		MetricName: *metricName,
-		HOLogic:    *hoLogic,
+		CAPath:      *caPath,
+		KeyPath:     *keyPath,
+		CertPath:    *certPath,
+		GRPCPort:    *grpcPort,
+		ModelName:   *modelName,
+		MetricName:  *metricName,
+		HOLogic:     *hoLogic,
+		LmfGRPCPort: *lmfGrpcPort,
 	}
 
 	mgr, err := manager.NewManager(cfg)

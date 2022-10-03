@@ -4,8 +4,8 @@
 
 layout:
   center:
-    lat: 52.52
-    lng: 13.405
+    lat: 40.075
+    lng: 116.24
   zoom: 0
   locationsscale: 1.25
   fademap: false
@@ -14,11 +14,11 @@ layout:
 routeEndPoints:
   -
     start:
-      lat: 52.486405366824926
-      lng: 13.40
+      lat: 40.07633
+      lng: 116.23637
     end:
-      lat: 52.486405366824926
-      lng: 13.45
+      lat: 40.07476
+      lng: 116.24432
 wayPointRoute: true
 directRoute: true
 nodes:
@@ -45,8 +45,8 @@ cells:
     ncgi: 87893173159116801
     sector:
       center:
-        lat: 52.486405366824926
-        lng: 13.40
+        lat: 40.07515
+        lng: 116.23983
       azimuth: 0
       arc: 120
       tilt: 1
@@ -74,8 +74,8 @@ cells:
     ncgi: 87893173159133185
     sector:
       center:
-        lat: 52.486405366824926
-        lng: 13.45
+        lat: 40.0742
+        lng: 116.243
       azimuth: 0
       arc: 120
       tilt: -15

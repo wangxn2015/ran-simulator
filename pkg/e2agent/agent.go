@@ -71,14 +71,14 @@ func NewE2Agent(node model.Node, model *model.Model,
 
 	// Each new e2 agent has its own subscription store
 	subStore := subscriptions.NewStore()
-	//该node支持的 SMs
-	sms := node.ServiceModels
+
+	sms := node.ServiceModels //该node支持的 SMs
 	for _, smID := range sms {
-		serviceModel, err := model.GetServiceModel(smID)
+		serviceModel, err := model.GetServiceModel(smID) //通过名称id，获取yaml文件中对应的service model
 		if err != nil {
 			return nil, err
 		}
-		switch registry.RanFunctionID(serviceModel.ID) {
+		switch registry.RanFunctionID(serviceModel.ID) { //e.g kpmv2 id is 4
 		case registry.Rcpre2:
 			log.Infof("Registering RC PRE service model for node with e2 Node ID: %v", node.GnbID)
 			rcSm, err := rc.NewServiceModel(node, model,

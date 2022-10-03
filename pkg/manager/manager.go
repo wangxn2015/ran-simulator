@@ -6,6 +6,7 @@ package manager
 
 import (
 	"context"
+	"github.com/wangxn2015/ran-simulator/pkg/lmfService"
 	"time"
 
 	"github.com/wangxn2015/ran-simulator/pkg/mobility"
@@ -26,19 +27,21 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/store/metrics"
 	"github.com/wangxn2015/ran-simulator/pkg/store/nodes"
 	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
+	uepos "github.com/wangxn2015/ran-simulator/pkg/uesposition"
 )
 
 var log = logging.GetLogger()
 
 // Config is a manager configuration
 type Config struct {
-	CAPath     string
-	KeyPath    string
-	CertPath   string
-	GRPCPort   int
-	ModelName  string
-	MetricName string
-	HOLogic    string
+	CAPath      string
+	KeyPath     string
+	CertPath    string
+	GRPCPort    int
+	ModelName   string
+	MetricName  string
+	HOLogic     string
+	LmfGRPCPort int
 }
 
 // NewManager creates a new manager
@@ -67,6 +70,8 @@ type Manager struct {
 	routeStore     routes.Store
 	metricsStore   metrics.Store
 	mobilityDriver mobility.Driver
+	lmfServer      *lmfService.Server // newly added by xiaonan
+
 }
 
 // Run starts the manager and the associated services
@@ -95,12 +100,22 @@ func (m *Manager) Start() error {
 		return err
 	}
 
+	//--------added by xiaonan ------------
+	//--------------------------------------
+	err = m.startLocationServer()
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+
 	m.mobilityDriver = mobility.NewMobilityDriver(m.cellStore, m.routeStore, m.ueStore, m.model.APIKey, m.config.HOLogic, m.model.UECountPerCell, m.model.RrcStateChangesDisabled, m.model.WayPointRoute)
 	// TODO: Make initial speeds configurable
 	m.mobilityDriver.GenerateRoutes(context.Background(), 720000, 1080000, 20000, m.model.RouteEndPoints, m.model.DirectRoute)
 	m.mobilityDriver.Start(context.Background())
 
+	//--------------------
 	// Start E2 agents
+	log.Info("Start E2 Agents...")
 	err = m.startE2Agents()
 	if err != nil {
 		return err
@@ -166,6 +181,26 @@ func (m *Manager) startNorthboundServer() error {
 		}
 	}()
 	return <-doneCh
+}
+
+// added by xiaonan
+func (m *Manager) startLocationServer() error {
+	log.Infof("Started LocationServer on %d", m.config.LmfGRPCPort)
+	m.lmfServer = lmfService.NewServer(m.config.LmfGRPCPort)
+	//
+	m.lmfServer.AddService(uepos.NewService(m.ueStore))
+	//
+
+	//doneCh := make(chan error)
+	go func() {
+		err := m.lmfServer.Serve()
+		if err != nil {
+			//doneCh <- err
+			return
+		}
+	}()
+	//return <-doneCh
+	return nil
 }
 
 func (m *Manager) startE2Agents() error {

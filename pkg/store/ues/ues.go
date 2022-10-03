@@ -6,10 +6,12 @@ package ues
 
 import (
 	"context"
+	"fmt"
+	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	"github.com/wangxn2015/ran-simulator/pkg/proto/track_msg"
 	"math/rand"
 	"sync"
-
-	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/wangxn2015/ran-simulator/pkg/store/watcher"
@@ -82,6 +84,8 @@ type Store interface {
 
 	// Watch watches the UE inventory events using the supplied channel
 	Watch(ctx context.Context, ch chan<- event.Event, options ...WatchOptions) error
+
+	Search(ctx context.Context, found func(ue *track_msg.UEInfo) error) error
 }
 
 // WatchOptions allows tailoring the WatchNodes behaviour
@@ -423,6 +427,39 @@ func (s *store) Watch(ctx context.Context, ch chan<- event.Event, options ...Wat
 				}
 			}
 		}()
+	}
+
+	return nil
+}
+
+func (s *store) Search(ctx context.Context, found func(ue *track_msg.UEInfo) error) error {
+
+	for j := 0; j < 100; j++ {
+		//s.mu.Lock()
+		for _, ue := range s.ues {
+			imsi := ue.IMSI
+			location := ue.Location
+			heading := ue.Heading
+			if ctx.Err() == context.Canceled || ctx.Err() == context.DeadlineExceeded {
+				fmt.Println("context is cancelled")
+				return nil
+			}
+			ueInfo := track_msg.UEInfo{
+				Imsi: uint64(imsi),
+				Loca: &track_msg.Location{
+					Lat: location.Lat,
+					Lng: location.Lng,
+				},
+				Bearing: float64(heading),
+			}
+			err := found(&ueInfo)
+			if err != nil {
+				return err
+			}
+
+		}
+		//s.mu.Unlock()
+		time.Sleep(time.Second)
 	}
 
 	return nil

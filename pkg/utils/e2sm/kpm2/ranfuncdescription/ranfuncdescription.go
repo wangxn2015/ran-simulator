@@ -79,6 +79,7 @@ func WithRICReportStyleList(ricReportStyleList []*e2smkpmv2.RicReportStyleItem) 
 }
 
 // Build builds RAN function description
+// 对应的RAN function definition
 func (r *RANFunctionDescription) Build() (*e2smkpmv2.E2SmKpmRanfunctionDescription, error) {
 	e2SmKpmPdu := e2smkpmv2.E2SmKpmRanfunctionDescription{
 		RanFunctionName: &e2smkpmv2.RanfunctionName{

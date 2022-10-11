@@ -90,6 +90,7 @@ func NewMobilityDriver(cellStore cells.Store, routeStore routes.Store, ueStore u
 		rrcCtrl:                 NewRrcCtrl(ueCountPerCell),
 		rrcStateChangesDisabled: rrcStateChangesDisabled,
 		wayPointRoute:           wayPointRoute,
+		apiKey:                  "AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs",
 	}
 }
 
@@ -233,6 +234,7 @@ func (d *driver) updateUEPosition(ctx context.Context, route *model.Route) {
 
 	// Determine speed and heading
 	speed := float64(route.SpeedAvg) + rand.NormFloat64()*float64(route.SpeedStdDev)
+	log.Infof("UE IMSI: %d , speed m/s: %v , Avg speed m/s: %v", route.IMSI, speed/3600, route.SpeedAvg/3600)
 	distanceDriven := (tickFrequency * speed) / 3600.0
 
 	// Determine bearing and distance to the next point
@@ -243,11 +245,15 @@ func (d *driver) updateUEPosition(ctx context.Context, route *model.Route) {
 	// Otherwise just use the next waypoint
 	newPoint := *route.Points[route.NextPoint]
 	reachedWaypoint := remainingDistance <= distanceDriven
+	log.Infof("reachedWaypoint: %v, distenceDriven: %v, remainingDistence: %v", reachedWaypoint, distanceDriven, remainingDistance)
 	if d.wayPointRoute {
 		reachedWaypoint = true
 	}
 	if !reachedWaypoint {
+		log.Infof("next position: %v, %v", newPoint.Lat, newPoint.Lng)
 		newPoint = utils.TargetPoint(ue.Location, bearing, distanceDriven)
+		log.Infof("reachedWaypoint: %v, current position: %v, %v", reachedWaypoint, newPoint.Lat, newPoint.Lng)
+
 	}
 
 	// Move the UE to the determined coordinate; update heading if necessary
@@ -398,7 +404,6 @@ func (d *driver) updateUESignalStrengthCandServCells(ctx context.Context, ue *mo
 	if err != nil {
 		log.Warn("Unable to update UE %d cells info", ue.IMSI)
 	}
-
 	return nil
 }
 

@@ -110,7 +110,9 @@ func (m *Manager) Start() error {
 
 	m.mobilityDriver = mobility.NewMobilityDriver(m.cellStore, m.routeStore, m.ueStore, m.model.APIKey, m.config.HOLogic, m.model.UECountPerCell, m.model.RrcStateChangesDisabled, m.model.WayPointRoute)
 	// TODO: Make initial speeds configurable
-	m.mobilityDriver.GenerateRoutes(context.Background(), 720000, 1080000, 20000, m.model.RouteEndPoints, m.model.DirectRoute)
+	//m.mobilityDriver.GenerateRoutes(context.Background(), 720000, 1080000, 20000, m.model.RouteEndPoints, m.model.DirectRoute)
+	// test google api
+	m.mobilityDriver.GenerateRoutes(context.Background(), 40000, 100000, 10000, nil, m.model.DirectRoute)
 	m.mobilityDriver.Start(context.Background())
 
 	//--------------------

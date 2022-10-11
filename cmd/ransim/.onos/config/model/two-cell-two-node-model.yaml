@@ -14,12 +14,12 @@ layout:
 routeEndPoints:
   -
     start:
-      lat: 40.07633
-      lng: 116.23637
+      lat: 40.077579
+      lng: 116.242279
     end:
-      lat: 40.07476
-      lng: 116.24432
-wayPointRoute: true
+      lat: 40.075577
+      lng: 116.251522
+wayPointRoute: false
 directRoute: true
 nodes:
   node1:
@@ -123,7 +123,7 @@ ueCount: 1
 ueCountPerCell: 15
 plmnID: "138426"
 plmnNumber: 1279014
-apiKey: ""
+apiKey: "AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs"
 localConfigs:
   sctpClient:
     sctpClientBind: true

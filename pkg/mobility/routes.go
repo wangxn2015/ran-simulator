@@ -7,7 +7,6 @@ package mobility
 
 import (
 	"context"
-	"crypto/tls"
 	"fmt"
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
@@ -15,7 +14,6 @@ import (
 	"googlemaps.github.io/maps"
 	"math"
 	"math/rand"
-	"net/http"
 )
 
 const googleAPIKeyMinLen = 38
@@ -70,8 +68,13 @@ func (d *driver) generateRoute(ctx context.Context, imsi types.IMSI, speedAvg ui
 
 	if len(routeEndPoints) == 0 {
 		// chose random end points
-		start = d.randomCoordinate()
-		end = d.randomCoordinate()
+		//start = d.randomCoordinate()
+		//end = d.randomCoordinate()
+
+		start = &model.Coordinate{Lat: 40.077579, Lng: 116.242279}
+		end = &model.Coordinate{Lat: 40.075577, Lng: 116.251522}
+
+		log.Info("wxn--> len(routeEndPoints) == 0")
 	} else {
 		// round-robin through the model's end points
 		start = &routeEndPoints[routeEndPointIndex].Start
@@ -80,7 +83,10 @@ func (d *driver) generateRoute(ctx context.Context, imsi types.IMSI, speedAvg ui
 	}
 
 	var points []*model.Coordinate
+	log.Infof("wxn--> len(d.apiKey): %d", len(d.apiKey))
+	log.Infof("wxn--> (d.apiKey): %v", d.apiKey)
 	if len(d.apiKey) >= googleAPIKeyMinLen {
+		log.Infof("Generating route using Google Directions...")
 		points, err = googleRoute(start, end, d.apiKey)
 		log.Infof("Generated route for UE %d with %d points using Google Directions", imsi, len(points))
 	} else {
@@ -109,31 +115,40 @@ func (d *driver) randomCoordinate() *model.Coordinate {
 }
 
 func googleRoute(startLoc *model.Coordinate, endLoc *model.Coordinate, apiKey string) ([]*model.Coordinate, error) {
-	cfg := &tls.Config{
-		InsecureSkipVerify: true,
-	}
-	transport := &http.Transport{
-		TLSClientConfig: cfg,
-	}
-	client := &http.Client{Transport: transport}
-	googleMapsClient, err := maps.NewClient(maps.WithAPIKey(apiKey), maps.WithHTTPClient(client))
+	//cfg := &tls.Config{
+	//	InsecureSkipVerify: true,
+	//}
+	//transport := &http.Transport{
+	//	TLSClientConfig: cfg,
+	//}
+	//client := &http.Client{Transport: transport}
+	//
+	//googleMapsClient, err := maps.NewClient(maps.WithAPIKey(apiKey), maps.WithHTTPClient(client))
+	//if err != nil {
+	//	return nil, err
+	//}
+
+	googleMapsClient, err := maps.NewClient(maps.WithAPIKey("AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs"))
 	if err != nil {
-		return nil, err
+		log.Fatalf("fatal error: %s", err)
 	}
 
 	dirReq := &maps.DirectionsRequest{
 		Origin:      fmt.Sprintf("%f,%f", startLoc.Lat, startLoc.Lng),
 		Destination: fmt.Sprintf("%f,%f", endLoc.Lat, endLoc.Lng),
+		Mode:        maps.TravelModeDriving,
 	}
 
 	googleRoute, _, err := googleMapsClient.Directions(context.Background(), dirReq)
 	if err != nil {
+		log.Infof("googleRoute error")
 		return nil, err
 	}
 	points := make([]*model.Coordinate, 0)
 	for _, groute := range googleRoute {
 		latLngs, err := groute.OverviewPolyline.Decode()
 		if err != nil {
+			log.Infof("decode error")
 			return nil, err
 		}
 		for _, ll := range latLngs {
@@ -144,6 +159,7 @@ func googleRoute(startLoc *model.Coordinate, endLoc *model.Coordinate, apiKey st
 			points = append(points, &point)
 		}
 	}
+	log.Infof("points are: %v", points)
 	return points, nil
 }
 

@@ -8,10 +8,10 @@ import (
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
 	"github.com/wangxn2015/ran-simulator/pkg/utils"
 
-	e2apcommondatatypes "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	e2apcommondatatypes "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 )
 
 // ConfigurationUpdate configuration update procedure data structure

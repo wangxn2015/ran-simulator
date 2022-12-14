@@ -10,7 +10,7 @@ import (
 
 	"time"
 
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
 )
 
 func (e *e2Connection) getRICAddress(tnlInfo *e2apies.Tnlinformation) addressing.RICAddress {

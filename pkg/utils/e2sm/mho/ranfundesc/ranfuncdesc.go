@@ -6,8 +6,8 @@ package ranfundesc
 
 import (
 	"fmt"
-	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	e2smv2ies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
+	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	e2smv2ies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
 )
 
 // RANFunctionDescription ran function description

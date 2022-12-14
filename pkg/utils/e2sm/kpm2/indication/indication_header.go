@@ -5,12 +5,12 @@
 package indication
 
 import (
-	e2smkpmv2sm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
+	e2smkpmv2sm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
 	"google.golang.org/protobuf/proto"
 
 	// "google.golang.org/protobuf/proto"
 
-	e2smkpmv2 "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
+	e2smkpmv2 "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
 )
 
 // Header indication header for kpm service model

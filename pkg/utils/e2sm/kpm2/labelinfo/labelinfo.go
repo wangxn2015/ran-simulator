@@ -6,8 +6,8 @@ package labelinfo
 
 import (
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2smkpmv2 "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	e2smkpmv2 "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 )
 
 // LabelInfo labels info

@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 
 	"github.com/wangxn2015/ran-simulator/pkg/utils"
 
@@ -31,13 +31,13 @@ import (
 	kpm2MessageFormat1 "github.com/wangxn2015/ran-simulator/pkg/utils/e2sm/kpm2/indication/messageformat1"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/pdubuilder"
-	e2smkpmv2sm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
-	e2smkpmv2 "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	e2aptypes "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/pdubuilder"
+	e2smkpmv2sm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
+	e2smkpmv2 "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2aptypes "github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel"
@@ -195,6 +195,17 @@ func NewServiceModel(node model.Node, model *model.Model,
 		ranfuncdescription.WithRICReportStyleList(ricReportStyleList)).
 		Build()
 
+	////test: remove kpmNodeList
+	//ranFuncDescPdu, err := ranfuncdescription.NewRANFunctionDescription(
+	//	ranfuncdescription.WithRANFunctionShortName(ranFunctionShortName),
+	//	ranfuncdescription.WithRANFunctionE2SmOID(ranFunctionE2SmOid),
+	//	ranfuncdescription.WithRANFunctionDescription(ranFunctionDescription),
+	//	ranfuncdescription.WithRANFunctionInstance(ranFunctionInstance),
+	//	//ranfuncdescription.WithRICKPMNodeList(reportKpmNodeList),
+	//	ranfuncdescription.WithRICEventTriggerStyleList(ricEventTriggerStyleList),
+	//	ranfuncdescription.WithRICReportStyleList(ricReportStyleList)).
+	//	Build()
+
 	if err != nil {
 		log.Error(err)
 		return registry.ServiceModel{}, err
@@ -207,6 +218,7 @@ func NewServiceModel(node model.Node, model *model.Model,
 	}
 
 	var kpm2ServiceModel e2smkpmv2sm.Kpm2ServiceModel
+	//transfer from proto to ASN1
 	ranFuncDescBytes, err := kpm2ServiceModel.RanFuncDescriptionProtoToASN1(protoBytes)
 	if err != nil {
 		log.Error(err)

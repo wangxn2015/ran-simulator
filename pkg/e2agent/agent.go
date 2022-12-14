@@ -32,7 +32,7 @@ import (
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 	connectionController "github.com/wangxn2015/ran-simulator/pkg/controller/connection"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
@@ -163,6 +163,7 @@ func (a *e2Agent) Start() error {
 		IPAddress: net.ParseIP(controllerAddresses[0]),
 		Port:      uint64(controller.Port),
 	}
+	// added by wxn 2022.9
 	sctpClientBindOpt := addressing.SctpClientBindAddress{
 		BindEnable: a.model.LocalConfigs["sctpclient"].SctpClientBindEnable,
 		IPAddress:  net.ParseIP(a.model.LocalConfigs["sctpclient"].Address),

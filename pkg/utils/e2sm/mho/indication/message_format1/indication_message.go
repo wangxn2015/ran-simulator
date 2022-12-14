@@ -6,10 +6,10 @@ package messageformat1
 
 import (
 	"fmt"
-	e2smmhosm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
-	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	e2smv2ies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
-	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	e2smmhosm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
+	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	e2smv2ies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 	"google.golang.org/protobuf/proto"
 )
 

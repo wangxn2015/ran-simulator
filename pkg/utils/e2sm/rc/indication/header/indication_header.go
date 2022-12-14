@@ -5,8 +5,8 @@
 package header
 
 import (
-	e2smrcpresm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
-	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	e2smrcpresm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 
 	"github.com/wangxn2015/ran-simulator/pkg/utils"
 
@@ -14,7 +14,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
 )
 
 // Header indication header for rc service model

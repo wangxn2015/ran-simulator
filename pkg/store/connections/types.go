@@ -5,7 +5,7 @@
 package connections
 
 import (
-	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
 )
 
 // ConnectionEvent a connection event

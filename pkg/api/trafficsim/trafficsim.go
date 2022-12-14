@@ -13,8 +13,8 @@ import (
 	simapi "github.com/onosproject/onos-api/go/onos/ransim/trafficsim"
 
 	simtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
+	service "github.com/onosproject/onos-lib-go/pkg/northbound"
 	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
-	service "github.com/wangxn2015/onos-lib-go/pkg/northbound"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
 	"github.com/wangxn2015/ran-simulator/pkg/store/ues"

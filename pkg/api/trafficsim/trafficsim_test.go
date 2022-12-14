@@ -15,8 +15,8 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/store/nodes"
 	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
 
+	"github.com/onosproject/onos-lib-go/pkg/northbound"
 	"github.com/stretchr/testify/assert"
-	"github.com/wangxn2015/onos-lib-go/pkg/northbound"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/test/bufconn"
 )

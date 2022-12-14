@@ -7,11 +7,11 @@ package mho
 import (
 	"encoding/hex"
 
-	e2smmhosm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
-	e2sm_mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	e2smmhosm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/servicemodel"
+	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"google.golang.org/protobuf/proto"
 )
 

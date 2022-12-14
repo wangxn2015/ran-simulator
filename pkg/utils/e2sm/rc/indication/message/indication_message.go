@@ -6,8 +6,8 @@ package message
 
 import (
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2smrcpresm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
-	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2smrcpresm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
+	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
 	"google.golang.org/protobuf/proto"
 )
 

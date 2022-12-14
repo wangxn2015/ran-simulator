@@ -5,7 +5,7 @@
 package connection
 
 import (
-	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
 	"github.com/wangxn2015/ran-simulator/pkg/e2agent/addressing"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"

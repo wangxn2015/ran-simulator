@@ -7,7 +7,7 @@ package ues
 import (
 	"context"
 	"fmt"
-	mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
 	"github.com/wangxn2015/ran-simulator/pkg/proto/track_msg"
 	"math/rand"
 	"sync"
@@ -19,7 +19,7 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/store/event"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/store/cells"

@@ -12,8 +12,8 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/mobility"
 	"github.com/wangxn2015/ran-simulator/pkg/store/routes"
 
+	"github.com/onosproject/onos-lib-go/pkg/northbound"
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
-	"github.com/wangxn2015/onos-lib-go/pkg/northbound"
 	cellapi "github.com/wangxn2015/ran-simulator/pkg/api/cells"
 	metricsapi "github.com/wangxn2015/ran-simulator/pkg/api/metrics"
 	modelapi "github.com/wangxn2015/ran-simulator/pkg/api/model"

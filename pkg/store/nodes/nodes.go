@@ -15,7 +15,7 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/store/watcher"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 )

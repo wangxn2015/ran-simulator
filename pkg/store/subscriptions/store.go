@@ -9,14 +9,14 @@ import (
 	"sync"
 	"time"
 
-	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
+	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
 
-	"github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	"github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 )
 
 // ID is an alias for string subscription ID

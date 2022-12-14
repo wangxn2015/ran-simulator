@@ -14,7 +14,7 @@ import (
 
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/event"
 )

@@ -6,7 +6,7 @@ package messageformat2
 
 import (
 	"encoding/hex"
-	"github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/pdubuilder"
+	"github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/pdubuilder"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

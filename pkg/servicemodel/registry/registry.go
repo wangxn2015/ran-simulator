@@ -22,8 +22,8 @@ import (
 
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 
-	e2aptypes "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	e2aptypes "github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel"
 )

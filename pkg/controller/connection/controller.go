@@ -8,7 +8,7 @@ import (
 	"context"
 	"sync/atomic"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 
 	"fmt"
 	"time"
@@ -21,14 +21,14 @@ import (
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
 	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/configupdate"
 
-	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
+	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
 	e2connection "github.com/wangxn2015/ran-simulator/pkg/e2agent/connection"
 
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/controller"
+	"github.com/onosproject/onos-lib-go/pkg/controller"
 )
 
 var log = logging.GetLogger()

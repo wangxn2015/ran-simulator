@@ -12,15 +12,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/pdubuilder"
-	"github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
+	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/pdubuilder"
+	"github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
 
-	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
-	e2apcommondatatypes "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
+	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
+	e2apcommondatatypes "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-commondatatypes"
 
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/kpm2"
 
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 
 	connectionsetupfaileditem "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/connectionupdate/connectionSetupFailedItemie"
 
@@ -44,14 +44,14 @@ import (
 	subdeleteutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscriptiondelete"
 
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/setup"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
 	e2 "github.com/wangxn2015/onos-e2t/pkg/protocols/e2ap"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"
 )

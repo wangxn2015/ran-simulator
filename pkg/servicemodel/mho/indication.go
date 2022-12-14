@@ -7,9 +7,9 @@ package mho
 import (
 	"context"
 	ransimtypes "github.com/onosproject/onos-api/go/onos/ransim/types"
-	e2sm_mho "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	e2sm_v2_ies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
-	"github.com/wangxn2015/onos-lib-go/api/asn1/v1/asn1"
+	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
+	e2sm_v2_ies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-v2-ies"
+	"github.com/onosproject/onos-lib-go/api/asn1/v1/asn1"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 	"github.com/wangxn2015/ran-simulator/pkg/utils"

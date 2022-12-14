@@ -61,7 +61,7 @@ func (m *measController) startMeasEventA3Handler(ctx context.Context) {
 	logMeasCtrl.Info("Measurement controller starting with EventA3Handler")
 	handler := NewMeasEventA3()
 	converter := NewMeasReportConverter(m.cellStore, m.ueStore)
-
+	//handler gets input data   via the below "m.forwardReportToEventA3Handler"
 	go handler.Start()
 	// for input
 	go m.forwardReportToEventA3Handler(ctx, handler, converter)

@@ -5,11 +5,11 @@
 package kpm2
 
 import (
-	e2smkpmv2sm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
-	e2smkpmv2 "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
-	v2 "github.com/wangxn2015/onos-e2t/api/e2ap/v2"
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	e2aptypes "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
+	e2smkpmv2sm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/servicemodel"
+	e2smkpmv2 "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_kpm_v2_go/v2/e2sm-kpm-v2-go"
+	v2 "github.com/onosproject/onos-e2t/api/e2ap/v2"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	e2aptypes "github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
 	"google.golang.org/protobuf/proto"
 )
 

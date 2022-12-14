@@ -24,8 +24,8 @@ import (
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/event"
 
-	e2smrcpresm "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
-	e2smrcpreies "github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
+	e2smrcpresm "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/servicemodel"
+	e2smrcpreies "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/v2/e2sm-rc-pre-v2-go"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/nodes"
 	"github.com/wangxn2015/ran-simulator/pkg/store/ues"
@@ -34,16 +34,16 @@ import (
 
 	subdeleteutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscriptiondelete"
 
-	e2apies "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-ies"
-	e2aptypes "github.com/wangxn2015/onos-e2t/pkg/southbound/e2ap/types"
+	e2apies "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-ies"
+	e2aptypes "github.com/onosproject/onos-e2t/pkg/southbound/e2ap/types"
 	subutils "github.com/wangxn2015/ran-simulator/pkg/utils/e2ap/subscription"
 
-	"github.com/wangxn2015/onos-e2-sm/servicemodels/e2sm_rc_pre_go/pdubuilder"
+	"github.com/onosproject/onos-e2-sm/servicemodels/e2sm_rc_pre_go/pdubuilder"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"google.golang.org/protobuf/proto"
 
-	e2appducontents "github.com/wangxn2015/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
-	"github.com/wangxn2015/onos-lib-go/pkg/errors"
+	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
+	"github.com/onosproject/onos-lib-go/pkg/errors"
 	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"

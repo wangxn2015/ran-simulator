@@ -234,7 +234,8 @@ func (d *driver) updateUEPosition(ctx context.Context, route *model.Route) {
 
 	// Determine speed and heading
 	speed := float64(route.SpeedAvg) + rand.NormFloat64()*float64(route.SpeedStdDev)
-	log.Infof("UE IMSI: %d , speed m/s: %v , Avg speed m/s: %v", route.IMSI, speed/3600, route.SpeedAvg/3600)
+	//wxn --
+	//log.Infof("UE IMSI: %d , speed m/s: %v , Avg speed m/s: %v", route.IMSI, speed/3600, route.SpeedAvg/3600)
 	distanceDriven := (tickFrequency * speed) / 3600.0
 
 	// Determine bearing and distance to the next point
@@ -245,7 +246,8 @@ func (d *driver) updateUEPosition(ctx context.Context, route *model.Route) {
 	// Otherwise just use the next waypoint
 	newPoint := *route.Points[route.NextPoint]
 	reachedWaypoint := remainingDistance <= distanceDriven
-	log.Infof("reachedWaypoint: %v, distenceDriven: %v, remainingDistence: %v", reachedWaypoint, distanceDriven, remainingDistance)
+	// wxn--
+	//log.Infof("reachedWaypoint: %v, distenceDriven: %v, remainingDistence: %v", reachedWaypoint, distanceDriven, remainingDistance)
 	if d.wayPointRoute {
 		reachedWaypoint = true
 	}

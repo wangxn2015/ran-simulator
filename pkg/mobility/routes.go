@@ -76,6 +76,7 @@ func (d *driver) generateRoute(ctx context.Context, imsi types.IMSI, speedAvg ui
 
 		log.Info("wxn--> len(routeEndPoints) == 0")
 	} else {
+		log.Info("wxn--> len(routeEndPoints) != 0")
 		// round-robin through the model's end points
 		start = &routeEndPoints[routeEndPointIndex].Start
 		end = &routeEndPoints[routeEndPointIndex].End

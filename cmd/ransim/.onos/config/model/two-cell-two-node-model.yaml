@@ -4,8 +4,8 @@
 
 layout:
   center:
-    lat: 40.075
-    lng: 116.24
+    lat: 52.52
+    lng: 13.405
   zoom: 0
   locationsscale: 1.25
   fademap: false
@@ -14,12 +14,12 @@ layout:
 routeEndPoints:
   -
     start:
-      lat: 40.077579
-      lng: 116.242279
+      lat: 52.486405366824926
+      lng: 13.40
     end:
-      lat: 40.075577
-      lng: 116.251522
-wayPointRoute: false
+      lat: 52.486405366824926
+      lng: 13.45
+wayPointRoute: true
 directRoute: true
 nodes:
   node1:
@@ -27,6 +27,8 @@ nodes:
     controllers:
     - e2t-1
     servicemodels:
+    - mho
+    - rcpre2
     - kpm2
     cells:
     - 87893173159116801
@@ -36,6 +38,8 @@ nodes:
     controllers:
     - e2t-1
     servicemodels:
+    - mho
+    - rcpre2
     - kpm2
     cells:
     - 87893173159133185
@@ -45,8 +49,8 @@ cells:
     ncgi: 87893173159116801
     sector:
       center:
-        lat: 40.07515
-        lng: 116.23983
+        lat: 52.486405366824926
+        lng: 13.40
       azimuth: 0
       arc: 120
       tilt: 1
@@ -74,8 +78,8 @@ cells:
     ncgi: 87893173159133185
     sector:
       center:
-        lat: 40.0742
-        lng: 116.243
+        lat: 52.486405366824926
+        lng: 13.45
       azimuth: 0
       arc: 120
       tilt: -15
@@ -123,10 +127,4 @@ ueCount: 1
 ueCountPerCell: 15
 plmnID: "138426"
 plmnNumber: 1279014
-apiKey: "AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs"
-localConfigs:
-  sctpClient:
-    sctpClientBind: true
-    id: sctp-client-1
-    address: 192.168.127.113
-#    address: 192.168.126.182
+apiKey: ""

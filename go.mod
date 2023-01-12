@@ -22,8 +22,7 @@ require (
 	github.com/spf13/viper v1.9.0
 	github.com/stretchr/testify v1.8.0
 	github.com/wangxn2015/helmit v1.6.21-0.20221211101934-72a55699c433
-	github.com/wangxn2015/onos-e2t v0.11.1-0.20221213104809-9e750336d72d
-	github.com/wangxn2015/onos-lib-go v0.8.16-0.20221213045740-e38a2ad92701
+	github.com/wangxn2015/onos-e2t v0.11.1-0.20221215031202-7412292a5335
 	github.com/wangxn2015/onos-ric-sdk-go v0.8.9-0.20221212153731-3320d18f773e
 	github.com/wangxn2015/rrm-son-lib v1.0.4-0.20221211101328-ae037e9ab599
 	//github.com/wangxn2015/onos-e2t v0.0.0-00010101000000-000000000000

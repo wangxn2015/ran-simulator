@@ -33,7 +33,7 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"
 
 	"github.com/onosproject/onos-lib-go/pkg/errors"
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	connectionController "github.com/wangxn2015/ran-simulator/pkg/controller/connection"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"

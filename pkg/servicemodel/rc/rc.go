@@ -44,7 +44,7 @@ import (
 
 	e2appducontents "github.com/onosproject/onos-e2t/api/e2ap/v2/e2ap-pdu-contents"
 	"github.com/onosproject/onos-lib-go/pkg/errors"
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel"
 	"github.com/wangxn2015/ran-simulator/pkg/servicemodel/registry"
 	"github.com/wangxn2015/ran-simulator/pkg/store/subscriptions"

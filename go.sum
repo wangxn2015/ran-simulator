@@ -1253,11 +1253,11 @@ github.com/vishvananda/netns v0.0.0-20200728191858-db3c7e526aae/go.mod h1:DD4vA1
 github.com/vishvananda/netns v0.0.0-20210104183010-2eb08e3e575f/go.mod h1:DD4vA1DwXk04H54A1oHXtwZmA0grkVMdPxx/VGLCah0=
 github.com/wangxn2015/helmit v1.6.21-0.20221211101934-72a55699c433 h1:/uAdOGmyOhR4PFtYPjcqMwye8hFbkp6cZ2Ep/39TdeA=
 github.com/wangxn2015/helmit v1.6.21-0.20221211101934-72a55699c433/go.mod h1:tsbIzsB3sLWxd/W9Rh0kgNdSBLkDc3lYorV+/3eYHkM=
-github.com/wangxn2015/onos-e2t v0.11.1-0.20221213104809-9e750336d72d h1:96EJnhrz5XWlnSIpzUyl0DqEpUZUCIT2I2X+atTUYyM=
-github.com/wangxn2015/onos-e2t v0.11.1-0.20221213104809-9e750336d72d/go.mod h1:n4lRDg1Xv9BIsxXKgJgLC9lvowMNewomZ9U48wdlcG8=
+github.com/wangxn2015/onos-e2t v0.11.1-0.20221215031202-7412292a5335 h1:Io4B+ubgLmR67010Obx/qy6L7hgX/4oXGvaWK+9bN+w=
+github.com/wangxn2015/onos-e2t v0.11.1-0.20221215031202-7412292a5335/go.mod h1:DvtwuSUg5xjGqe5U+DsTPuA1B15uT4hzjSNXa5zYbWY=
 github.com/wangxn2015/onos-lib-go v0.8.16-0.20221211095953-88ba820eb386/go.mod h1:te/HouPqR1JxHnNTIPcKMw/rvITMirXwRhYxSR4iu94=
-github.com/wangxn2015/onos-lib-go v0.8.16-0.20221213045740-e38a2ad92701 h1:tg0kYR2Jhzq8C8nOnj/qFD4oLsZ0kx6Jk12YC53khOY=
-github.com/wangxn2015/onos-lib-go v0.8.16-0.20221213045740-e38a2ad92701/go.mod h1:ObUDAbZ4hJtYZL8vB34OTKg4cYdw7bb0EcIH8E7XHLg=
+github.com/wangxn2015/onos-lib-go v0.8.16-0.20221215030935-42607b3b0737 h1:l1DOdfdnbqQZU9NxURymlgU2By8aE5snOaoK2OGzvHs=
+github.com/wangxn2015/onos-lib-go v0.8.16-0.20221215030935-42607b3b0737/go.mod h1:ObUDAbZ4hJtYZL8vB34OTKg4cYdw7bb0EcIH8E7XHLg=
 github.com/wangxn2015/onos-proxy v1.1.1-0.20221211102503-7b1c8fbd00a5/go.mod h1:GgJPSqiSeR8DmFyXGDk/Ssy68zO0zUy6gXzpyxcP8fM=
 github.com/wangxn2015/onos-ric-sdk-go v0.8.9-0.20221212153731-3320d18f773e h1:WcCtyRxruq5IAlP3g1aS7yjtQWtdETpmPiaGqKk01OU=
 github.com/wangxn2015/onos-ric-sdk-go v0.8.9-0.20221212153731-3320d18f773e/go.mod h1:723gpKNP3rHqMAzsJOljtdlCyBWB4Ku9xFGMHRS967w=

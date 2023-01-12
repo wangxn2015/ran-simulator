@@ -15,7 +15,7 @@ import (
 	"google.golang.org/protobuf/proto"
 
 	mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 )
 
 var log = logging.GetLogger("sm", "mho")

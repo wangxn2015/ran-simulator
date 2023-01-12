@@ -26,7 +26,7 @@ import (
 
 	"github.com/wangxn2015/ran-simulator/pkg/e2agent/addressing"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
 

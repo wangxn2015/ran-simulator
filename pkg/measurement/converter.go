@@ -8,7 +8,7 @@ import (
 	"context"
 	"math"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
 	"github.com/wangxn2015/ran-simulator/pkg/store/cells"
 	"github.com/wangxn2015/ran-simulator/pkg/store/ues"

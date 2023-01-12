@@ -15,7 +15,7 @@ import (
 	e2sm_mho "github.com/onosproject/onos-e2-sm/servicemodels/e2sm_mho_go/v2/e2sm-mho-go"
 
 	"github.com/onosproject/onos-api/go/onos/ransim/types"
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/handover"
 	"github.com/wangxn2015/ran-simulator/pkg/measurement"
 	"github.com/wangxn2015/ran-simulator/pkg/model"
@@ -90,7 +90,7 @@ func NewMobilityDriver(cellStore cells.Store, routeStore routes.Store, ueStore u
 		rrcCtrl:                 NewRrcCtrl(ueCountPerCell),
 		rrcStateChangesDisabled: rrcStateChangesDisabled,
 		wayPointRoute:           wayPointRoute,
-		apiKey:                  "AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs",
+		//apiKey:                  "AIzaSyBaEEtnG7BNhqEPwuaw5aDc_axtKHRwVQs",
 	}
 }
 

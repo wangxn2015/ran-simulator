@@ -4,7 +4,7 @@ package lmfService
 
 import (
 	"fmt"
-	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
+	liblog "github.com/onosproject/onos-lib-go/pkg/logging"
 	"google.golang.org/grpc"
 	"net"
 )

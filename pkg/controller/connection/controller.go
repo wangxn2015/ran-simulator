@@ -24,7 +24,7 @@ import (
 	e2 "github.com/onosproject/onos-e2t/pkg/protocols/e2ap"
 	e2connection "github.com/wangxn2015/ran-simulator/pkg/e2agent/connection"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 
 	"github.com/wangxn2015/ran-simulator/pkg/store/connections"
 

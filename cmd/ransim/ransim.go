@@ -24,7 +24,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/manager"
 )
 
@@ -70,6 +70,7 @@ func main() {
 	metricName := flag.String("metricName", "metrics", "RANSim metric file/resource name")
 	hoLogic := flag.String("hoLogic", "local", "the location of handover logic {local, mho}")
 	lmfGrpcPort := flag.Int("lmfGrpcPort", 50051, "GRPC port for e2T server")
+
 	//------------------------------------------
 	flag.Parse()
 

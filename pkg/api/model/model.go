@@ -9,8 +9,8 @@ import (
 	"context"
 
 	modelapi "github.com/onosproject/onos-api/go/onos/ransim/model"
+	liblog "github.com/onosproject/onos-lib-go/pkg/logging"
 	service "github.com/onosproject/onos-lib-go/pkg/northbound"
-	liblog "github.com/wangxn2015/onos-lib-go/pkg/logging"
 	"google.golang.org/grpc"
 )
 

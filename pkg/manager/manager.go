@@ -12,8 +12,8 @@ import (
 	"github.com/wangxn2015/ran-simulator/pkg/mobility"
 	"github.com/wangxn2015/ran-simulator/pkg/store/routes"
 
+	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/onosproject/onos-lib-go/pkg/northbound"
-	"github.com/wangxn2015/onos-lib-go/pkg/logging"
 	cellapi "github.com/wangxn2015/ran-simulator/pkg/api/cells"
 	metricsapi "github.com/wangxn2015/ran-simulator/pkg/api/metrics"
 	modelapi "github.com/wangxn2015/ran-simulator/pkg/api/model"
@@ -110,9 +110,10 @@ func (m *Manager) Start() error {
 
 	m.mobilityDriver = mobility.NewMobilityDriver(m.cellStore, m.routeStore, m.ueStore, m.model.APIKey, m.config.HOLogic, m.model.UECountPerCell, m.model.RrcStateChangesDisabled, m.model.WayPointRoute)
 	// TODO: Make initial speeds configurable
-	//m.mobilityDriver.GenerateRoutes(context.Background(), 720000, 1080000, 20000, m.model.RouteEndPoints, m.model.DirectRoute)
+	m.mobilityDriver.GenerateRoutes(context.Background(), 720000, 1080000, 20000, m.model.RouteEndPoints, m.model.DirectRoute)
 	// test google api
-	m.mobilityDriver.GenerateRoutes(context.Background(), 40000, 100000, 10000, nil, m.model.DirectRoute)
+	//m.mobilityDriver.GenerateRoutes(context.Background(), 40000, 100000, 10000, nil, m.model.DirectRoute)
+
 	m.mobilityDriver.Start(context.Background())
 
 	//--------------------

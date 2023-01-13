@@ -680,6 +680,7 @@ func (e *e2Connection) connect() error {
 	//--------------wxn-----------
 	//--------new func to bind sctpClient address
 	if e.sctpClientBindAddress.BindEnable == true {
+		log.Info("wxn --> sctpClientBindAddress.BindEnable = true")
 		sctpClientIpAddress := e.sctpClientBindAddress.IPAddress.String()
 		client, err := e2.ConnectWithSctpBind(ctx, addr, sctpClientIpAddress,
 			func(channel e2.ClientConn) e2.ClientInterface {
@@ -692,6 +693,7 @@ func (e *e2Connection) connect() error {
 		e.client = client
 		return nil
 	} else {
+		log.Info("wxn --> sctpClientBindAddress.BindEnable = false")
 		client, err := e2.Connect(ctx, addr,
 			func(channel e2.ClientConn) e2.ClientInterface {
 				return e

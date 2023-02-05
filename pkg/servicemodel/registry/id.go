@@ -16,7 +16,7 @@ const (
 
 	// Internal
 	Internal RanFunctionID = iota
-	// Kpm
+	// Kpm  -- 1
 	Kpm
 	// Ni
 	Ni

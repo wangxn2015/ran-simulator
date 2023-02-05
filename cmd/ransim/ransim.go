@@ -21,12 +21,11 @@ package main
 
 import (
 	"flag"
-	"fmt"
+	"math/rand"
+	"time"
+
 	"github.com/onosproject/onos-lib-go/pkg/logging"
 	"github.com/wangxn2015/ran-simulator/pkg/manager"
-	"math/rand"
-	"os/user"
-	"time"
 )
 
 var log = logging.GetLogger("main")
@@ -44,14 +43,8 @@ func (i *arrayFlags) Set(value string) error {
 
 // The main entry point
 func main() {
-	logging.SetLevel(logging.DebugLevel)
+	//logging.SetLevel(logging.DebugLevel)
 	log.Info("Starting Ran simulator")
-
-	u, err := user.Current()
-	if err != nil {
-		log.Error("err")
-	}
-	fmt.Println("home dir: ", u.HomeDir)
 
 	rand.Seed(time.Now().UnixNano())
 

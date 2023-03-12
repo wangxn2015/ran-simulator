@@ -6,14 +6,13 @@
 /*
 Package trafficsim is the main entry point to the ONOS TrafficSim application.
 
-Arguments
+# Arguments
 
 -caPath <the location of a CA certificate>
 
 -keyPath <the location of a client private key>
 
 -certPath <the location of a client certificate>
-
 
 See ../../docs/run.md for how to run the application.
 */
@@ -22,6 +21,7 @@ package main
 import (
 	"flag"
 	"math/rand"
+	"os/user"
 	"time"
 
 	"github.com/onosproject/onos-lib-go/pkg/logging"
@@ -50,6 +50,11 @@ func main() {
 
 	ready := make(chan bool)
 
+	u, err := user.Current()
+	if err != nil {
+		log.Error("getting user error")
+	}
+	log.Debug("user home dir: %v", u.HomeDir)
 	var serviceModelPlugins arrayFlags
 	flag.Var(&serviceModelPlugins, "serviceModel", "names of service model plugins to load (repeated)")
 	//------------------------------------------
@@ -61,9 +66,9 @@ func main() {
 	//metricName := flag.String("metricName", "", "RANSim metric file/resource name")
 	//hoLogic := flag.String("hoLogic", "local", "the location of handover logic {local, mho}")
 	//------------------------------------------
-	caPath := flag.String("caPath", "/home/baicells/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.cacrt", "path to CA certificate")
-	keyPath := flag.String("keyPath", "/home/baicells/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.key", "path to client private key")
-	certPath := flag.String("certPath", "/home/baicells/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.crt", "path to client certificate")
+	caPath := flag.String("caPath", u.HomeDir+"/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.cacrt", "path to CA certificate")
+	keyPath := flag.String("keyPath", u.HomeDir+"/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.key", "path to client private key")
+	certPath := flag.String("certPath", u.HomeDir+"/go_project/ran-simulator/cmd/ransim/.onos/config/certs/tls.crt", "path to client certificate")
 	grpcPort := flag.Int("grpcPort", 5150, "GRPC port for e2T server")
 	//modelName := flag.String("modelName", "model/one-cell-one-node-model.yaml", "RANSim model file/resource name")
 	modelName := flag.String("modelName", "model/two-cell-two-node-model.yaml", "RANSim model file/resource name")

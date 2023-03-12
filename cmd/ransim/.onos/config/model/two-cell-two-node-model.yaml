@@ -106,7 +106,7 @@ cells:
 controllers:
   e2t-1:
     id: e2t-1
-    address: 192.168.127.113
+    address: 192.168.3.82
     port: 36401
 servicemodels:
   kpm2:
@@ -132,5 +132,5 @@ localConfigs:
   sctpClient:
     sctpClientBind: true
     id: sctp-client-1
-    address: 192.168.127.113
+    address: 192.168.3.82
 #    address: 192.168.126.182
